@@ -51,4 +51,36 @@ class ProductController extends Controller
     public function form(){
         return view('admin.add-produk-admin');
     }
+
+    public function store(Request $request){
+        DB::beginTransaction();
+
+        try {
+            // Insert data into users table
+            $produk = Produk::create([
+                'nama_produk' => $request->nama_produk,
+                'gambar_produk' => $request->gambar_produk,
+                'deskripsi_produk' => $request->deskripsi_produk,
+            ]);
+
+            // Insert data into user_details table with foreign key user_id
+            $produk->detail()->create([
+                'kategori' => $request->kategori,
+            ]);
+
+            $produk->detail()->create([
+                'nama_varian' => $request->varian,
+                'harga_produk' => $request->varian,
+                'stock' => $request->varian,
+            ]);
+
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollback();
+            return redirect()->back()->with('error', 'Gagal menyimpan data.');
+        }
+
+        return redirect()->back()->with('success', 'Data berhasil disimpan.');
+
+    }
 }

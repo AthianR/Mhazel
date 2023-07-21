@@ -29,3 +29,17 @@ $(document).ready(function () {
         $(".check-all").not(this).prop("checked", isChecked);
     });
 });
+
+function goBack() {
+    window.history.back();
+    disableForwardNavigation();
+}
+
+function disableForwardNavigation() {
+    if (window.history && window.history.pushState) {
+        window.history.pushState(null, null, window.location.href);
+        window.onpopstate = function () {
+            window.history.pushState(null, null, window.location.href);
+        };
+    }
+}

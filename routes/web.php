@@ -26,6 +26,7 @@ Route::prefix('admin')->group(function () {
     Route::post('/delete-users', [UserController::class, 'deleteSelectedUsers'])->name('delete.users');
     Route::get('/produk', [ProductController::class, 'all'])->name('produk.admin');
     Route::get('/add-produk', [ProductController::class, 'form'])->name('add.produk');
+    Route::post('/add', [ProductController::class, 'store'])->name('add.data');
 });
 
 Route::middleware('custom')->group(function () {
