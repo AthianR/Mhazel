@@ -1,12 +1,13 @@
 <?php
 
 use App\Events\Massagecreate;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\KeranjangController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RegisterController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\KeranjangController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,10 +24,11 @@ Route::prefix('admin')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard.admin');
     // Route::post('/admin', [AdminController::class, 'login'])->name('admin.login.submit');
     Route::get('/user', [AdminController::class, 'user'])->name('admin.showuser');
-    Route::post('/delete-users', [UserController::class, 'deleteSelectedUsers'])->name('delete.users');
+    // Route::post('/delete-users', [UserController::class, 'deleteSelectedUsers'])->name('delete.users');
     Route::get('/produk', [ProductController::class, 'all'])->name('produk.admin');
     Route::get('/add-produk', [ProductController::class, 'form'])->name('add.produk');
     Route::post('/add', [ProductController::class, 'store'])->name('add.data');
+    Route::delete('/delete-users', [UserController::class, 'deleteUsers'])->name('delete.users');
 });
 
 Route::middleware('custom')->group(function () {
