@@ -5,15 +5,56 @@ namespace App\Http\Controllers;
 use App\Models\Kategori;
 use App\Models\Produk;
 use App\Models\Keranjang;
+use App\Models\Varian;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
-    public function all(){
+    public function all()
+    {
         $data = Produk::paginate(5);
         // dd($data);
         return view('admin.produk-admin', compact('data'));
+    }
+
+    public function ambilkategori()
+    {
+        $data = Kategori::all();
+        // dd($data);
+        return view('admin.add-produk-admin', compact('data'));
+    }
+
+    public function storedata(Request $request)
+    {
+        // Validate the request data
+        $validatedData = $request->validate(
+            [
+                'nama_produk' => 'required|string|max:255',
+                'gambar_produk' => 'required',
+                'deskripsi_produk' => 'required|string',
+                'kategori_produk' => 'required|numeric',
+                'nama_varian' => 'required|string|max:255',
+            ]
+        );
+
+        // Handle the file upload
+        // $gambar_produk = $request->file('gambar_produk');
+        // $gambar_produk_path = $gambar_produk->store('uploads', 'public'); // Change 'public' to the disk you want to use (configured in config/filesystems.php)
+
+        // Create the product with the file path
+        $mhs = Produk::create([
+            'nama_produk' => $validatedData['nama_produk'],
+            'gambar_produk' => $validatedData['gambar_produk'],
+            'deskripsi_produk' => $validatedData['deskripsi_produk'],
+            'kategori_id' => $validatedData['kategori_produk'],
+            'varian_id' => $validatedData['nama_varian'],
+        ]);
+
+        // Set flash data for success message with time
+        $request->session()->flash('success', 'Berhasil Menambahkan Data pada ' . now()->toDateTimeString());
+
+        return redirect()->route('produk.admin');
     }
 
     public function index(Request $id)
@@ -48,39 +89,8 @@ class ProductController extends Controller
         // return view('product.key', compact('data', 'id'));
     }
 
-    public function form(){
+    public function form()
+    {
         return view('admin.add-produk-admin');
-    }
-
-    public function store(Request $request){
-        DB::beginTransaction();
-
-        try {
-            // Insert data into users table
-            $produk = Produk::create([
-                'nama_produk' => $request->nama_produk,
-                'gambar_produk' => $request->gambar_produk,
-                'deskripsi_produk' => $request->deskripsi_produk,
-            ]);
-
-            // Insert data into user_details table with foreign key user_id
-            $produk->detail()->create([
-                'kategori' => $request->kategori,
-            ]);
-
-            $produk->detail()->create([
-                'nama_varian' => $request->varian,
-                'harga_produk' => $request->varian,
-                'stock' => $request->varian,
-            ]);
-
-            DB::commit();
-        } catch (\Exception $e) {
-            DB::rollback();
-            return redirect()->back()->with('error', 'Gagal menyimpan data.');
-        }
-
-        return redirect()->back()->with('success', 'Data berhasil disimpan.');
-
     }
 }

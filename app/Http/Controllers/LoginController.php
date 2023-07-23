@@ -24,11 +24,7 @@ class LoginController extends Controller
             // Autentikasi berhasil
             $user = Auth::user(); // Ambil informasi pengguna yang telah terautentikasi
     
-            if ($user->role === 'admin') {
-                // Jika pengguna memiliki peran 'admin', arahkan ke halaman admin
-                return redirect()->route('dashboard.admin')->with('success', 'Login successful as Admin.');
-
-            } elseif ($user->role === 'user') {
+            if ($user->role === 'user') {
                 // Jika pengguna memiliki peran 'user', arahkan ke halaman user
                 return redirect()->route('dashboard.user')->with('success', 'Login successful as User.');
             }

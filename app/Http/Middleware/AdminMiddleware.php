@@ -4,9 +4,8 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class Middleware
+class AdminMiddleware
 {
     /**
      * Handle an incoming request.
@@ -17,10 +16,10 @@ class Middleware
      */
     public function handle($request, Closure $next)
 {
-    if (auth()->check() && auth()->user()->role === 'user') {
+    if (auth()->check() && auth()->user()->role === 'admin') {
         return $next($request);
     }
 
-    return redirect('/login')->with('error', 'You are not allowed to access this page.');
+    return redirect('/loginadmin')->with('error', 'You are not allowed to access this page.');
 }
 }
