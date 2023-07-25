@@ -18,6 +18,7 @@ class TbProduk extends Migration
             $table->string('nama_produk');
             $table->string('deskripsi_produk');
             $table->foreignId('kategori_id')->constrained('tb_kategori');
+            $table->foreignId('varian_id')->constrained('tb_varian');
             $table->timestamps();
         });
     }

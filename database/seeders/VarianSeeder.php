@@ -19,42 +19,36 @@ class VarianSeeder extends Seeder
             'harga_produk' => '54352',
             'gambar_produk' => 'GantunganPcx.png',
             'stock' => '234',
-            'id_produk' => '1'
         ]);
         Varian::create([
             'nama_varian' => 'Putih',
             'harga_produk' => '39732',
             'gambar_produk' => 'GantunganPcx.png',
             'stock' => '345',
-            'id_produk' => '1'
         ]);
         Varian::create([
             'nama_varian' => 'Hitam',
             'harga_produk' => '31345',
             'gambar_produk' => 'GantunganPcx.png',
             'stock' => '987',
-            'id_produk' => '1'
         ]);
         Varian::create([
             'nama_varian' => 'Silikon',
             'harga_produk' => '33465',
             'gambar_produk' => 'GantunganPcx.png',
             'stock' => '654',
-            'id_produk' => '1'
         ]);
         Varian::create([
             'nama_varian' => 'Putih + Biru',
             'harga_produk' => '38346',
             'gambar_produk' => 'GantunganPcx.png',
             'stock' => '132',
-            'id_produk' => '1'
         ]);
         Varian::create([
             'nama_varian' => 'Merah + Putih',
             'harga_produk' => '36857',
             'gambar_produk' => 'GantunganPcx.png',
             'stock' => '213',
-            'id_produk' => '1'
         ]);
     }
 }

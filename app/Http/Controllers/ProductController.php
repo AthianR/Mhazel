@@ -28,15 +28,13 @@ class ProductController extends Controller
     public function storedata(Request $request)
     {
         // Validate the request data
-        $validatedData = $request->validate(
-            [
-                'nama_produk' => 'required|string|max:255',
-                'gambar_produk' => 'required',
-                'deskripsi_produk' => 'required|string',
-                'kategori_produk' => 'required|numeric',
-                'nama_varian' => 'required|string|max:255',
-            ]
-        );
+        $validatedData = $request->validate([
+            'nama_produk' => 'required|string|max:255',
+            'gambar_produk' => 'required',
+            'deskripsi_produk' => 'required|string',
+            'kategori_produk' => 'required|numeric',
+            'nama_varian' => 'required|string|max:255',
+        ]);
 
         // Handle the file upload
         // $gambar_produk = $request->file('gambar_produk');
@@ -59,11 +57,11 @@ class ProductController extends Controller
 
     public function index(Request $id)
     {
-        $data = Produk::join('tb_kategori', 'tb_produk.kategori_id', '=', 'tb_kategori.id')
-            // ->where('tb_kategori.kategori', '=', 'Keychain')
-            // ->select('tb_produk.*', 'tb_kategori.harga_produk')
+        $data = DB::table('tb_produk')
+            ->leftJoin('tb_varian', 'tb_produk.id', '=', 'tb_varian.id_produk')
+            ->leftJoin('tb_kategori', 'tb_produk.kategori_id', '=', 'tb_kategori.id')
             ->get();
-        // $data = Produk::all();
+        // dd($data);
         $product = Produk::find($id);
         // dd($data);
         return view('dashboard', compact('data', 'id'));

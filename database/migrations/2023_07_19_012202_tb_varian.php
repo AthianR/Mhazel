@@ -15,7 +15,6 @@ class TbVarian extends Migration
     {
         Schema::create('tb_varian', function (Blueprint $table){
             $table->id();
-            $table->foreignId('id_produk');
             $table->string('nama_varian');
             $table->string('harga_produk');
             $table->string('gambar_produk');
