@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class TbVarian extends Migration
+class TbProfileUser extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class TbVarian extends Migration
      */
     public function up()
     {
-        Schema::create('tb_varian', function (Blueprint $table){
+        Schema::create('tb_profile_pelanggan', function(Blueprint $table){
             $table->id();
-            $table->foreignId('id_produk');
-            $table->string('nama_varian');
-            $table->string('harga_produk');
-            $table->string('gambar_produk');
-            $table->string('stock');
+            $table->string('foto_profile');
+            $table->string('alamat');
+            $table->date('tanggal_lahir');
+            $table->foreignId('id_user')->constrained('users');
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class TbVarian extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tb_varian');
+        Schema::dropIfExists('tb_profile_pelanggan');
     }
 }

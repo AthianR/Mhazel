@@ -15,10 +15,8 @@ class TbKeranjang extends Migration
     {
         Schema::create('tb_keranjang', function (Blueprint $table){
             $table->id();
-            $table->string('nama_produk');
-            $table->string('qty');
-            $table->string('harga_produk');
             $table->foreignId('user_id')->constrained('users');
+            $table->string('total_harga');
             $table->timestamps();
         });
     }

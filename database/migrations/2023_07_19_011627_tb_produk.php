@@ -16,10 +16,8 @@ class TbProduk extends Migration
         Schema::create('tb_produk', function (Blueprint $table) {
             $table->id();
             $table->string('nama_produk');
-            $table->string('gambar_produk');
             $table->string('deskripsi_produk');
             $table->foreignId('kategori_id')->constrained('tb_kategori');
-            $table->foreignId('varian_id')->nullable()->constrained('tb_varian');
             $table->timestamps();
         });
     }

@@ -15,17 +15,33 @@ class KeranjangSeeder extends Seeder
     public function run()
     {
         Keranjang::create([
-            'nama_produk' => 'GANTUNGAN KUNCI MOBIL GESPER ANYAM KEYCHAIN LOGO MEREK MOBIL',
-            'qty' => '2',
-            'harga_produk' => '342342',
-            'user_id' => 1,
+            'total_harga' => '235567',
+            'user_id' => '2',
         ]);
 
         Keranjang::create([
-            'nama_produk' => 'GANTUNGAN KUNCI MOTOR LOGO HONDA YAMAHA KAWASAKI SUZUKI',
-            'qty' => '2',
-            'harga_produk' => '1321321',
-            'user_id' => 1,
+            'total_harga' => '235567',
+            'user_id' => '3',
+        ]);
+
+        Keranjang::create([
+            'total_harga' => '235567',
+            'user_id' => '2',
+        ]);
+
+        Keranjang::create([
+            'total_harga' => '235567',
+            'user_id' => '3',
+        ]);
+
+        Keranjang::create([
+            'total_harga' => '235567',
+            'user_id' => '3',
+        ]);
+
+        Keranjang::create([
+            'total_harga' => '235567',
+            'user_id' => '3',
         ]);
     }
 }
