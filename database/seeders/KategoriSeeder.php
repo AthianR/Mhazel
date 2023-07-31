@@ -15,19 +15,19 @@ class KategoriSeeder extends Seeder
     public function run()
     {
         Kategori::create([
-            'kategori' => 'Keychain',
+            'nama_kategori' => 'Keychain',
         ]);
 
         Kategori::create([
-            'kategori' => 'Cleaner',
+            'nama_kategori' => 'Cleaner',
         ]);
 
         Kategori::create([
-            'kategori' => 'Equipment',
+            'nama_kategori' => 'Equipment',
         ]);
 
         Kategori::create([
-            'kategori' => 'Other Accessories',
+            'nama_kategori' => 'Other Accessories',
         ]);
     }
 }

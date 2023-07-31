@@ -14,12 +14,12 @@ class AdminMiddleware
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle($request, Closure $next)
-{
-    if (auth()->check() && auth()->user()->role === 'admin') {
-        return $next($request);
-    }
+    public function handle(Request $request, Closure $next)
+    {
+        if ($request->user() && $request->user()->role === 'admin') {
+            return $next($request);
+        }
 
-    return redirect('/loginadmin')->with('error', 'You are not allowed to access this page.');
-}
+        return redirect()->route('home')->with('error', 'You are not authorized.');
+    }
 }

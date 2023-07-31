@@ -15,9 +15,13 @@ class TbKeranjang extends Migration
     {
         Schema::create('tb_keranjang', function (Blueprint $table){
             $table->id();
-            $table->foreignId('user_id')->constrained('users');
-            $table->string('total_harga');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('produk_id');
+            $table->integer('qty');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('produk_id')->references('id')->on('tb_produk')->onDelete('cascade');
         });
     }
 

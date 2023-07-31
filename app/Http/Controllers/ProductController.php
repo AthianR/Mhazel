@@ -2,27 +2,60 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Kategori;
+use App\Models\User;
 use App\Models\Produk;
-use App\Models\Keranjang;
 use App\Models\Varian;
+use App\Models\Kategori;
+use App\Models\Keranjang;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
+    public function index(Request $id)
+    {
+        $data = Produk::all();
+        $cart = Keranjang::select('*', DB::raw('(SELECT SUM(qty) FROM tb_keranjang WHERE tb_keranjang.produk_id = tb_produk.id) as produk_sum_qty'))
+                ->join('tb_produk', 'tb_keranjang.produk_id', '=', 'tb_produk.id')
+                ->orderByDesc('produk_sum_qty')
+                ->limit(5)
+                ->get();
+        // dd($cart);
+        // dd($data);
+        return view('dashboard', compact('data', 'cart'));
+    }
+
+    // public function recommendProducts()
+    // {
+    //     $products = Produk::withCount('orders')->orderBy('orders_count', 'desc')->limit(5)->get();
+
+    //     return view('recommendations', compact('products'));
+    // }
+
+    public $search;
+    protected $queryString = ['search'];
+    public $limitPerPage = 5;
+
     public function all()
     {
-        $data = Produk::paginate(5);
-        // dd($data);
-        return view('admin.produk-admin', compact('data'));
+        $posts = Produk::paginate(5);
+        // dd($posts);
+        if ($this->search !== null) {
+            $posts = Produk::where('nama_produk', 'like', '%' . $this->search . '%')
+                ->latest()
+                ->paginate($this->limitPerPage);
+        }
+        ;
+        return view('admin.produk-admin', ['posts' => $posts]);
     }
 
     public function ambilkategori()
     {
         $data = Kategori::all();
+        $varian = Varian::all();
         // dd($data);
-        return view('admin.add-produk-admin', compact('data'));
+        return view('admin.add-produk-admin', compact('data', 'varian'));
     }
 
     public function storedata(Request $request)
@@ -55,18 +88,6 @@ class ProductController extends Controller
         return redirect()->route('produk.admin');
     }
 
-    public function index(Request $id)
-    {
-        $data = DB::table('tb_produk')
-            ->leftJoin('tb_varian', 'tb_produk.id', '=', 'tb_varian.id_produk')
-            ->leftJoin('tb_kategori', 'tb_produk.kategori_id', '=', 'tb_kategori.id')
-            ->get();
-        // dd($data);
-        $product = Produk::find($id);
-        // dd($data);
-        return view('dashboard', compact('data', 'id'));
-    }
-
     public function keychain(Request $id)
     {
         // $data = DB::table('tb_produk')
@@ -90,5 +111,55 @@ class ProductController extends Controller
     public function form()
     {
         return view('admin.add-produk-admin');
+    }
+
+    public function formKategori(){
+        $data = DB::table('tb_kategori')->get();
+        // dd($data);
+        return view('admin.form-kategori', compact('data'));
+    }
+
+    public function tambahKategori(Request $request)
+    {
+        $validatedData = $request->validate([
+            'nama_kategori' => 'required|string|max:255',
+        ]);
+
+        $kategori = Kategori::create([
+            'kategori' => $validatedData['nama_kategori'],
+        ]);
+
+        // Set flash data for success message with time
+        $request->session()->flash('success', 'Berhasil Menambahkan Data Kategori pada ' . now()->toDateTimeString());
+
+        return redirect()->route('add.kategori');
+    }
+
+    public function formVariasi(){
+        $data = DB::table('tb_varian')->get();
+        // dd($data);
+        return view('admin.form-variasi', compact('data'));
+    }
+
+    public function tambahVariasi(Request $request)
+    {
+        $validatedData = $request->validate([
+            'nama_varian' => 'required|string|max:255',
+            'harga_produk' => 'required|string|max:255',
+            'gambar_produk' => 'required|string|max:255',
+            'stok' => 'required|string|max:255',
+        ]);
+
+        $kategori = Varian::create([
+            'nama_varian' => $validatedData['nama_varian'],
+            'harga_produk' => $validatedData['harga_produk'],
+            'gambar_produk' => $validatedData['gambar_produk'],
+            'stock' => $validatedData['stok'],
+        ]);
+
+        // Set flash data for success message with time
+        $request->session()->flash('success', 'Berhasil Menambahkan Data Variasi pada ' . now()->toDateTimeString());
+
+        return redirect()->route('add.variasi');
     }
 }

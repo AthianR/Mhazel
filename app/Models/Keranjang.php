@@ -9,9 +9,15 @@ class Keranjang extends Model
 {
     use HasFactory;
     protected $table = 'tb_keranjang';
-    protected $fillable = ['total_harga', 'user_id'];
+    protected $fillable = ['user_id', 'produk_id', 'qty']; // Ganti 'product_id' menjadi 'produk_id'
 
-    public function user(){
-        return $this->hasMany(User::class, 'user_id', 'id');
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function produk()
+    {
+        return $this->belongsTo(Produk::class, 'produk_id'); // Ganti 'product_id' menjadi 'produk_id'
     }
 }

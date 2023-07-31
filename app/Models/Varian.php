@@ -9,10 +9,10 @@ class Varian extends Model
 {
     use HasFactory;
     protected $table = 'tb_varian';
-    protected $fillable = ['nama_varian', 'harga_produk', 'gambar_produk', 'stock'];
+    protected $fillable = ['nama_variasi'];
 
-    public function produk()
+    public function produks()
     {
-        return $this->belongsToMany(Produk::class, 'id', 'varian_id');
+        return $this->hasMany(Produk::class, 'variasi_id');
     }
 }

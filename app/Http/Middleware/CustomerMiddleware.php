@@ -4,9 +4,8 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class Middleware
+class CustomerMiddleware
 {
     /**
      * Handle an incoming request.
@@ -17,6 +16,11 @@ class Middleware
      */
     public function handle(Request $request, Closure $next)
     {
-        return $next($request);
+        if ($request->user() && $request->user()->role === 'customer') {
+            return $next($request);
+        }
+
+        return redirect()->route('login')->with('error', 'You are not authorized.');
+        
     }
 }

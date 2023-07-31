@@ -1,13 +1,13 @@
 $(document).ready(function () {
     setTimeout(function () {
         $("#alert-success").fadeOut("slow");
-    }, 2000); // Ubah angka 3000 menjadi waktu yang diinginkan dalam milidetik (misalnya 5000 untuk 5 detik)
+    }, 2000);
 });
 
 $(document).ready(function () {
     setTimeout(function () {
         $("#alert-error").fadeOut("slow");
-    }, 2000); // Ubah angka 3000 menjadi waktu yang diinginkan dalam milidetik (misalnya 5000 untuk 5 detik)
+    }, 2000);
 });
 
 $(document).ready(function () {
@@ -43,3 +43,71 @@ function disableForwardNavigation() {
         };
     }
 }
+
+document.getElementById("qty").addEventListener("input", function () {
+    var input = this.value;
+    if (input < 1) {
+        // Tampilkan modal jika nilai kurang dari 0
+        var modal = document.getElementById("myModal");
+        modal.style.display = "block";
+        this.value = 1; // Reset nilai menjadi 0
+    }
+});
+
+// Tombol "Batal" pada modal
+document.getElementById("cancelBtn").addEventListener("click", function () {
+    var modal = document.getElementById("myModal");
+    modal.style.display = "none"; // Sembunyikan modal jika tombol "Batal" diklik
+});
+
+document.getElementById("closeBtn").addEventListener("click", function () {
+    var modal = document.getElementById("myModal");
+    modal.style.display = "none"; // Sembunyikan modal jika tombol "Batal" diklik
+});
+
+document.getElementById("checkAll").addEventListener("change", function () {
+    var checkboxes = document.getElementsByClassName("checkSingle");
+    for (var i = 0; i < checkboxes.length; i++) {
+        checkboxes[i].checked = this.checked;
+    }
+});
+
+// Fungsi untuk mengecek apakah ada setidaknya satu produk yang dipilih pada checkbox
+function isAnyCheckboxChecked() {
+    var checkboxes = document.getElementsByClassName("checkSingle");
+    for (var i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+            return true;
+        }
+    }
+    return false;
+}
+
+// Event listener untuk checkbox utama
+document.getElementById("checkAll").addEventListener("change", function () {
+    var checkboxes = document.getElementsByClassName("checkSingle");
+    for (var i = 0; i < checkboxes.length; i++) {
+        checkboxes[i].checked = this.checked;
+    }
+
+    updateCheckoutButton(); // Perbarui status tombol checkout
+});
+
+// Event listener untuk checkbox lainnya
+var checkboxes = document.getElementsByClassName("checkSingle");
+for (var i = 0; i < checkboxes.length; i++) {
+    checkboxes[i].addEventListener("change", updateCheckoutButton);
+}
+
+// Fungsi untuk menghitung total harga berdasarkan qty dan harga produk
+function updateTotalHarga() {
+    var qtyInput = document.getElementById("qty");
+    var hargaProduk = parseFloat(
+        document.getElementById("hargaProduk").innerText
+    );
+    var totalHarga = qtyInput.value * hargaProduk;
+    document.getElementById("totalHarga").innerText = totalHarga.toFixed(2);
+}
+
+// Event listener untuk menghitung total harga saat nilai qty berubah
+document.getElementById("qty").addEventListener("input", updateTotalHarga);

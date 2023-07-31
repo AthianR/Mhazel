@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class TbProduk extends Migration
+class TbKategori extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class TbProduk extends Migration
      */
     public function up()
     {
-        Schema::create('tb_produk', function (Blueprint $table) {
+        Schema::create('tb_kategori', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_produk');
-            $table->string('deskripsi_produk');
-            $table->foreignId('kategori_id')->constrained('tb_kategori');
-            $table->foreignId('varian_id')->constrained('tb_varian');
+            $table->string('nama_kategori');
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ class TbProduk extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tb_produk');
+        Schema::dropIfExists('tb_kategori');
     }
 }

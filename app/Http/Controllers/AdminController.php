@@ -13,7 +13,7 @@ class AdminController extends Controller
     }
 
     public function user(Request $id){
-        $user = 'user';
+        $user = 'customer';
         $data = User::where('role', $user)->paginate(5)->onEachSide(4);
         // dd($data);
         return view('admin.user-admin', compact('data'));

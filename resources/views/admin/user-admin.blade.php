@@ -1,10 +1,11 @@
 @extends('layouts.admin')
-@section('title', 'Login Admin')
+@section('title', 'User Admin')
 @section('content')
     <div class="container">
         <div class="pb-4 pt-4 sm:ml-64">
             <div class="p-2 border-2 border-gray-900 border-dashed rounded-lg dark:border-gray-700">
                 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                    {{-- <livewire:user-list /> --}}
                     <form action="{{ route('delete.users') }}" method="POST">
                         @csrf
                         @method('DELETE')

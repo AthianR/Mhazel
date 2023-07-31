@@ -4,11 +4,13 @@ use App\Events\Massagecreate;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\KeranjangController;
 use App\Http\Controllers\LoginAdminController;
+use App\Http\Livewire\SearchBar;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,22 +25,34 @@ use App\Http\Controllers\LoginAdminController;
 
 Route::middleware('admin')->group(function () {
     Route::get('/dashboard/admin', [AdminController::class, 'index'])->name('dashboard.admin');
-    // Route::post('/admin', [AdminController::class, 'login'])->name('admin.login.submit');
     Route::get('/user', [AdminController::class, 'user'])->name('admin.showuser');
-    // Route::post('/delete-users', [UserController::class, 'deleteSelectedUsers'])->name('delete.users');
     Route::get('/produk', [ProductController::class, 'all'])->name('produk.admin');
     Route::get('/add-produk', [ProductController::class, 'form'])->name('add.produk');
     Route::get('/add-produk', [ProductController::class, 'ambilkategori'])->name('add.produk');
     Route::post('/add', [ProductController::class, 'storedata'])->name('add.data');
+
+    Route::get('/formkategori', [ProductController::class, 'formKategori'])->name('add.kategori');
+    Route::get('/formvariasi', [ProductController::class, 'formVariasi'])->name('add.variasi');
+
+    Route::post('/addkategori', [ProductController::class, 'tambahKategori'])->name('add.dataKategori');
+    Route::post('/addvariasi', [ProductController::class, 'tambahVariasi'])->name('add.dataVariasi');
+
+
     Route::delete('/delete-users', [UserController::class, 'deleteUsers'])->name('delete.users');
+
+    Route::get('/search', [SearchBar::class, 'render'])->name('search');
 });
 
-Route::middleware('user')->group(function () {
+// Route::middleware('customer')->group(function () {
     Route::get('/dashboard', [ProductController::class, 'index'])->name('dashboard.user');
     Route::get('/cart', [KeranjangController::class, 'index'])->name('cart');
-    Route::post('/addToCart/{id}', [KeranjangController::class, 'addToCart'])->name('addToCart');
+    Route::post('/add-to-cart', [KeranjangController::class, 'addToCart'])->name('add.to.cart');
+    Route::delete('/delete/cart/{id}', [KeranjangController::class, 'deleteCart'])->name('delete.cart');
     Route::get('/keychain', [ProductController::class, 'keychain'])->name('keychain');
-});
+    Route::get('/history', [HistoryController::class, 'index'])->name('history.user');
+    Route::post('/cartadd', [KeranjangController::class, 'store'])->name('add.qty');
+    Route::post('/cartmin', [KeranjangController::class, 'destroy'])->name('min.qty');
+// });
 
 Route::get('/', [ProductController::class, 'index'])->name('dashboard');
 Route::get('/register', [RegisterController::class, 'index'])->name('registeruser');
@@ -52,3 +66,5 @@ Route::get('/loginadmin', [LoginAdminController::class, 'index'])->name('loginad
 Route::post('/login-admin', [LoginAdminController::class, 'loginadmin'])->name('login-admin');
 
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
+

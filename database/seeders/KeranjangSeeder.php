@@ -15,33 +15,39 @@ class KeranjangSeeder extends Seeder
     public function run()
     {
         Keranjang::create([
-            'total_harga' => '235567',
-            'user_id' => '2',
+            'user_id' => '1',
+            'product_id' => '1',
+            'qty' => '1',
         ]);
 
         Keranjang::create([
-            'total_harga' => '235567',
-            'user_id' => '3',
+            'user_id' => '1',
+            'product_id' => '1',
+            'qty' => '1',
         ]);
 
         Keranjang::create([
-            'total_harga' => '235567',
-            'user_id' => '2',
+            'user_id' => '1',
+            'product_id' => '1',
+            'qty' => '1',
         ]);
 
         Keranjang::create([
-            'total_harga' => '235567',
-            'user_id' => '3',
+            'user_id' => '1',
+            'product_id' => '1',
+            'qty' => '1',
         ]);
 
         Keranjang::create([
-            'total_harga' => '235567',
-            'user_id' => '3',
+            'user_id' => '1',
+            'product_id' => '1',
+            'qty' => '1',
         ]);
 
         Keranjang::create([
-            'total_harga' => '235567',
-            'user_id' => '3',
+            'user_id' => '1',
+            'product_id' => '1',
+            'qty' => '1',
         ]);
     }
 }

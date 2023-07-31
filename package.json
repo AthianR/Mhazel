@@ -16,6 +16,7 @@
         "postcss": "^8.1.14"
     },
     "dependencies": {
+        "flowbite": "^1.7.0",
         "laravel-echo": "^1.15.2",
         "pusher-js": "^8.3.0"
     }

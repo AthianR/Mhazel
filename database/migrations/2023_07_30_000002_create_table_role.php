@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class TbKategori extends Migration
+class CreateTableRole extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class TbKategori extends Migration
      */
     public function up()
     {
-        Schema::create('tb_kategori', function (Blueprint $table) {
+        Schema::create('tb_role', function (Blueprint $table) {
             $table->id();
-            $table->string('kategori');
+            $table->string('nama_role');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class TbKategori extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tb_kategori');
+        Schema::dropIfExists('tb_role');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class TbOrder extends Migration
+class TbVarian extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class TbOrder extends Migration
      */
     public function up()
     {
-        Schema::create('tb_order', function (Blueprint $table){
+        Schema::create('tb_varian', function (Blueprint $table){
             $table->id();
-            $table->foreignId('user_id')->constrained('users');
-            $table->date('tanggal_pesanan');
-            $table->string('total');
+            $table->string('nama_variasi');
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ class TbOrder extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tb_order');
+        Schema::dropIfExists('tb_varian');
     }
 }
