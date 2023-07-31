@@ -107,16 +107,20 @@
                                     <td class="px-6">
                                         <form action="{{ route('min.qty', ['id' => $item->id]) }}" method="post">
                                             @csrf
-                                            <input type="text" name="produk_id" id="produk_id" value="{{ $item->produk_id }}" hidden>
-                                            <input type="number" name="qty" id="qty" value="{{ $nilaiDefaultQty }}" hidden>
+                                            <input type="text" name="produk_id" id="produk_id"
+                                                value="{{ $item->produk_id }}" hidden>
+                                            <input type="number" name="qty" id="qty"
+                                                value="{{ $nilaiDefaultQty }}" hidden>
                                             <button type="submit" class="p-2" style="font-size: 1.5rem">-</button>
                                         </form>
                                         <input class="px-2 rounded-lg" style="max-width: 3rem" type="number"
-                                                value="{{ $item->qty }}" name="qty" id="qty" disabled>
+                                            value="{{ $item->qty }}" name="qty" id="qty" disabled>
                                         <form action="{{ route('add.qty', ['id' => $item->id]) }}" method="post">
                                             @csrf
-                                            <input type="text" name="produk_id" id="produk_id" value="{{ $item->produk_id }}" hidden>
-                                            <input type="number" name="qty" id="qty" value="{{ $nilaiDefaultQty }}" hidden>
+                                            <input type="text" name="produk_id" id="produk_id"
+                                                value="{{ $item->produk_id }}" hidden>
+                                            <input type="number" name="qty" id="qty"
+                                                value="{{ $nilaiDefaultQty }}" hidden>
                                             <button type="submit" class="p-2" style="font-size: 1.5rem">+</button>
                                         </form>
                                     </td>
@@ -210,10 +214,23 @@
                             </div>
                             <!-- Modal body -->
                             <div class="p-6 space-y-6">
+                                <div class="grid gap-4 mb-2 sm:grid-cols-2 p-4">
+                                    @foreach ($user as $ur)
+                                        <label for="nama">Nama</label>
+                                        <input type="text" class="rounded-lg"
+                                            placeholder="{{ Auth::user()->nama_lengkap }}" disabled>
+                                        <label for="phone">No Telephone</label>
+                                        <input type="text" class="rounded-lg" placeholder="{{ $ur->phone }}"
+                                            disabled>
+                                        <label for="alamat">Alamat Pengiriman</label>
+                                        <input type="text" class="rounded-lg"
+                                            placeholder="{{ $ur->alamat_pengiriman }}" disabled>
+                                    @endforeach
+                                </div>
                                 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                                     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                                         <thead
-                                            class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                            class="text-xs text-gray-700 uppercase bg-gray-300 dark:bg-gray-700 dark:text-gray-400">
                                             <tr>
                                                 <th scope="col" class="px-6 py-3">
                                                     Nama Produk
@@ -230,24 +247,37 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <?php
+                                            $totalbayar = 0;
+                                            ?>
                                             @foreach ($data as $item)
-                                            <tr
-                                                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                                <th scope="row"
-                                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                    {{ $item->nama_produk }}
-                                                </th>
-                                                <td class="px-6 py-4">
-                                                    {{ $item->nama_variasi }}
-                                                </td>
-                                                <td class="px-6 py-4">
-                                                    {{ $item->qty }}
-                                                </td>
-                                                <td class="px-6 py-4">
-                                                    Rp. {{ number_format($item->harga) }}
-                                                </td>
-                                            </tr>
+                                                <?php
+                                                $subtotal = $item->qty * $item->harga;
+                                                ?>
+                                                <tr
+                                                    class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                                    <th scope="row"
+                                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                        {{ $item->nama_produk }}
+                                                    </th>
+                                                    <td class="px-6 py-4">
+                                                        {{ $item->nama_variasi }}
+                                                    </td>
+                                                    <td class="px-6 py-4">
+                                                        {{ $item->qty }}
+                                                    </td>
+                                                    <td class="px-6 py-4">
+                                                        Rp. {{ number_format($subtotal) }}
+                                                    </td>
+                                                </tr>
+                                                <?php
+                                                $totalbayar += $subtotal;
+                                                ?>
                                             @endforeach
+                                            <tr>
+                                                <th colspan="3" style="padding: 1.7rem">Total Bayar</th>
+                                                <th style="padding: 1.7rem">Rp. {{ number_format($totalbayar) }}</th>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -255,9 +285,26 @@
                             <!-- Modal footer -->
                             <div
                                 class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
+                                <form action="{{ route('add.transaksi') }}" method="post">
+                                    @csrf
+                                    @method('POST')
+                                    <input type="text" name="user_id" id="user_id" value="{{ Auth::user()->id }}"
+                                        hidden>
+                                    <input type="text" name="total_harga" id="total_harga"
+                                        value="{{ $totalbayar }}" hidden>
+                                    <input type="text" name="status_pembayaran" id="status_pembayaran"
+                                        value="Pending" hidden>
+                                    <input type="text" name="status_pengiriman" id="status_pengiriman"
+                                        value="Sedang Dikemas" hidden>
+                                    <input type="text" name="alamat_pengiriman" id="alamat_pengiriman"
+                                        value="{{ $ur->alamat_pengiriman }}" hidden>
+                                    <button data-modal-hide="staticModal" type="submit"
+                                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">I
+                                        accept</button>
+                                </form>
                                 <button data-modal-hide="staticModal" type="button"
                                     class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">I
-                                    accept</button>
+                                    </button>
                                 <button data-modal-hide="staticModal" type="button"
                                     class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Decline</button>
                             </div>

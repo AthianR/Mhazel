@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Produk;
 use App\Models\Keranjang;
+use App\Models\Transaksi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -30,15 +32,27 @@ class KeranjangController extends Controller
         $nilaiDefaultQty = 1;
         $userId = Auth::user()->id;
         // dd($userId);
+        $user = User::join('tb_profile', 'tb_profile.user_id', '=', 'users.id')
+            ->where('users.id', $userId)
+            ->select('users.nama_lengkap as nama_lengkap', 'tb_profile.alamat_user as alamat_user', 'tb_profile.phone as phone', 'tb_profile.alamat_user as alamat_pengiriman')
+            ->get();
+        // dd($user);
 
-        $data = Keranjang::select('tb_produk.id as produk_id','tb_keranjang.id as id', 'tb_produk.nama_produk as nama_produk', 'tb_keranjang.qty as qty', 'tb_produk.harga as harga', 'tb_produk.gambar_produk as gambar_produk', 'tb_varian.nama_variasi as nama_variasi')
+        $data = Keranjang::select(
+            'tb_produk.id as produk_id',
+            'tb_keranjang.id as id', 
+            'tb_produk.nama_produk as nama_produk', 
+            'tb_keranjang.qty as qty', 
+            'tb_produk.harga as harga', 
+            'tb_produk.gambar_produk as gambar_produk', 
+            'tb_varian.nama_variasi as nama_variasi')
             ->join('users', 'tb_keranjang.user_id', '=', 'users.id')
             ->join('tb_produk', 'tb_keranjang.produk_id', '=', 'tb_produk.id')
             ->join('tb_varian', 'tb_produk.variasi_id', '=', 'tb_varian.id')
             ->where('users.id', $userId)
             ->get();
         // dd($data);
-        return view('cart', compact('data', 'nilaiDefaultQty'));
+        return view('cart', compact('data', 'nilaiDefaultQty', 'user'));
     }
 
     public function store(Request $request)

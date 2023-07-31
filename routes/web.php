@@ -1,16 +1,17 @@
 <?php
 
 use App\Events\Massagecreate;
+use App\Http\Livewire\SearchBar;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\KeranjangController;
+use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\LoginAdminController;
-use App\Http\Livewire\SearchBar;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,6 +53,7 @@ Route::middleware('admin')->group(function () {
     Route::get('/history', [HistoryController::class, 'index'])->name('history.user');
     Route::post('/cartadd', [KeranjangController::class, 'store'])->name('add.qty');
     Route::post('/cartmin', [KeranjangController::class, 'destroy'])->name('min.qty');
+    Route::post('/addtransaksi', [HistoryController::class, 'store'])->name('add.transaksi');
 // });
 
 Route::get('/', [ProductController::class, 'index'])->name('dashboard');
