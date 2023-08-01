@@ -17,6 +17,10 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="/flowbite-astro-admin-dashboard/_astro/404.cb9dcf67.css" />
+    <link rel="stylesheet" href="/flowbite-astro-admin-dashboard/_astro/dashboard.4976dd5b.css" />
+    <link rel="stylesheet" href="/flowbite-astro-admin-dashboard/_astro/products.1ae16725.css" />
 </head>
 
 <body>
@@ -91,15 +95,15 @@
                 </div>
             </nav>
         @else
-        <nav class="border-gray-200 bg-yellow-200 dark:bg-gray-800 dark:border-gray-700">
-            <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-                <a href="#" class="flex items-center">
-                    <img src="icon/apple-icon-57x57.png" class="h-8 mr-3" style="border-radius: 45%"
-                        alt="Mhazel Logo" />
-                    <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Mhazel</span>
-                </a>
-            </div>
-        </nav>
+            <nav class="border-gray-200 bg-yellow-200 dark:bg-gray-800 dark:border-gray-700">
+                <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+                    <a href="#" class="flex items-center">
+                        <img src="icon/apple-icon-57x57.png" class="h-8 mr-3" style="border-radius: 45%"
+                            alt="Mhazel Logo" />
+                        <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Mhazel</span>
+                    </a>
+                </div>
+            </nav>
         @endif
     </header>
 
@@ -240,7 +244,8 @@
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../js/script.js"></script>
-
+    {{-- <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script type="module" src="/flowbite-astro-admin-dashboard/_astro/hoisted.a3a5daed.js"></script> --}}
 </body>
 
 </html>

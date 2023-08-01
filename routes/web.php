@@ -53,6 +53,8 @@ use App\Http\Controllers\LoginAdminController;
     Route::post('/cartmin', [KeranjangController::class, 'destroy'])->name('min.qty');
     Route::post('/addtransaksi', [HistoryController::class, 'store'])->name('add.transaksi');
     Route::get('/checkout', [KeranjangController::class, 'checkout'])->name('checkout');
+    Route::get('/profile/user', [UserController::class, 'profile'])->name('profile.user');
+    Route::post('/update/profile', [UserController::class, 'update'])->name('update.user');
 // });
 
 Route::get('/', [ProductController::class, 'index'])->name('dashboard');

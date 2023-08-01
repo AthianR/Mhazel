@@ -35,7 +35,7 @@
                             </svg>
                         </button>
                         <a href="/dashboard" class="flex mr-4">
-                            <img src="icon/apple-icon-57x57.png" class="mr-3 h-8" alt="Mhazel Logo"
+                            <img src="../icon/apple-icon-57x57.png" class="mr-3 h-8" alt="Mhazel Logo"
                                 style="border-radius: 45%" />
                             <span
                                 class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Mhazel</span>
@@ -138,14 +138,9 @@
                             </div>
                             <ul class="py-1 font-light text-gray-500 dark:text-gray-400" aria-labelledby="dropdown">
                                 <li>
-                                    <a href="#"
+                                    <a href="{{ route('profile.user') }}"
                                         class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">My
                                         profile</a>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                        class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">Account
-                                        settings</a>
                                 </li>
                             </ul>
                             <ul class="py-1 font-light text-gray-500 dark:text-gray-400" aria-labelledby="dropdown">
@@ -187,7 +182,7 @@
                 <div class="flex flex-wrap justify-between items-center">
                     <div class="flex justify-start items-center">
                         <a href="/dashboard" class="flex mr-4">
-                            <img src="icon/apple-icon-57x57.png" class="mr-3 h-8" alt="Mhazel Logo"
+                            <img src="../icon/apple-icon-57x57.png" class="mr-3 h-8" alt="Mhazel Logo"
                                 style="border-radius: 45%" />
                             <span
                                 class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Mhazel</span>
@@ -369,7 +364,7 @@
             <div class="md:flex md:justify-between">
                 <div class="mb-6 md:mb-0">
                     <a href="https://flowbite.com/" class="flex items-center">
-                        <img src="icon/ms-icon-310x310.png" class="h-20 mr-3" alt="Mhazel"
+                        <img src="../icon/ms-icon-310x310.png" class="h-20 mr-3" alt="Mhazel"
                             style="border-radius: 50%" />
                         <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
                             style="font-weight: 600; font-size: 3rem">Mhazel</span>
