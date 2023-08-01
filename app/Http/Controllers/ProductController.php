@@ -17,10 +17,10 @@ class ProductController extends Controller
     {
         $data = Produk::all();
         $cart = Keranjang::select('*', DB::raw('(SELECT SUM(qty) FROM tb_keranjang WHERE tb_keranjang.produk_id = tb_produk.id) as produk_sum_qty'))
-                ->join('tb_produk', 'tb_keranjang.produk_id', '=', 'tb_produk.id')
-                ->orderByDesc('produk_sum_qty')
-                ->limit(5)
-                ->get();
+            ->join('tb_produk', 'tb_keranjang.produk_id', '=', 'tb_produk.id')
+            ->orderByDesc('produk_sum_qty')
+            ->limit(5)
+            ->get();
         // dd($cart);
         // dd($data);
         return view('dashboard', compact('data', 'cart'));
@@ -46,7 +46,6 @@ class ProductController extends Controller
                 ->latest()
                 ->paginate($this->limitPerPage);
         }
-        ;
         return view('admin.produk-admin', ['posts' => $posts]);
     }
 
@@ -90,13 +89,6 @@ class ProductController extends Controller
 
     public function keychain(Request $id)
     {
-        // $data = DB::table('tb_produk')
-        //     ->join('tb_kategori', 'tb_produk.kategori_id', '=', 'tb_kategori.id')
-        //     ->join('tb_varian', 'tb_produk.id', '=', 'tb_varian.produk_id')
-        //     ->where('tb_kategori.nama_kategori', '=', 'Nama Kategori Tertentu')
-        //     ->where('tb_varian.nama_varian', '=', 'Nama Varian Tertentu')
-        //     ->select('tb_produk.*', 'tb_kategori.nama_kategori', 'tb_varian.nama_varian')
-        //     ->get();
         $data = DB::table('tb_varian')
             ->leftJoin('tb_produk', 'tb_varian.id', '=', 'tb_produk.varian_id')
             ->leftJoin('tb_kategori', 'tb_produk.kategori_id', '=', 'tb_kategori.id')
@@ -113,7 +105,8 @@ class ProductController extends Controller
         return view('admin.add-produk-admin');
     }
 
-    public function formKategori(){
+    public function formKategori()
+    {
         $data = DB::table('tb_kategori')->get();
         // dd($data);
         return view('admin.form-kategori', compact('data'));
@@ -135,7 +128,8 @@ class ProductController extends Controller
         return redirect()->route('add.kategori');
     }
 
-    public function formVariasi(){
+    public function formVariasi()
+    {
         $data = DB::table('tb_varian')->get();
         // dd($data);
         return view('admin.form-variasi', compact('data'));
@@ -161,5 +155,10 @@ class ProductController extends Controller
         $request->session()->flash('success', 'Berhasil Menambahkan Data Variasi pada ' . now()->toDateTimeString());
 
         return redirect()->route('add.variasi');
+    }
+
+    public function __construct()
+    {
+        $this->middleware('admin')->only(['all', 'ambilkategori', 'storedata', 'form', 'formKategori', 'tambahKategori', 'formVariasi', 'tambahVariasi']);
     }
 }

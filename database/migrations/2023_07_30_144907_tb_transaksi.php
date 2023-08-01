@@ -19,6 +19,8 @@ class TbTransaksi extends Migration
             $table->decimal('total_harga', 10, 2);
             $table->string('status_pembayaran');
             $table->string('status_pengiriman');
+            $table->integer('qty');
+            $table->string('nama_produk');
             $table->text('alamat_pengiriman');
             $table->timestamps();
 

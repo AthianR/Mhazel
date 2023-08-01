@@ -38,14 +38,7 @@ class KeranjangController extends Controller
             ->get();
         // dd($user);
 
-        $data = Keranjang::select(
-            'tb_produk.id as produk_id',
-            'tb_keranjang.id as id', 
-            'tb_produk.nama_produk as nama_produk', 
-            'tb_keranjang.qty as qty', 
-            'tb_produk.harga as harga', 
-            'tb_produk.gambar_produk as gambar_produk', 
-            'tb_varian.nama_variasi as nama_variasi')
+        $data = Keranjang::select('tb_produk.id as produk_id', 'tb_keranjang.id as id', 'tb_produk.nama_produk as nama_produk', 'tb_keranjang.qty as qty', 'tb_produk.harga as harga', 'tb_produk.gambar_produk as gambar_produk', 'tb_varian.nama_variasi as nama_variasi')
             ->join('users', 'tb_keranjang.user_id', '=', 'users.id')
             ->join('tb_produk', 'tb_keranjang.produk_id', '=', 'tb_produk.id')
             ->join('tb_varian', 'tb_produk.variasi_id', '=', 'tb_varian.id')
@@ -79,7 +72,7 @@ class KeranjangController extends Controller
             ->where('produk_id', $produk_id)
             ->where('id', $keranjang_id)
             ->first();
-        
+
         // dd($cart);
 
         if ($cart) {
@@ -115,7 +108,7 @@ class KeranjangController extends Controller
             ->where('produk_id', $produk_id)
             ->where('id', $keranjang_id)
             ->first();
-        
+
         // dd($cart);
 
         if ($cart) {

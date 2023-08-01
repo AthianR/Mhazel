@@ -24,8 +24,9 @@ use App\Http\Controllers\LoginAdminController;
 |
 */
 
-Route::middleware('admin')->group(function () {
-    Route::get('/dashboard/admin', [AdminController::class, 'index'])->name('dashboard.admin');
+// Route::middleware('admin')->group(function () {
+    // Route::get('/home', [AdminController::class, 'index'])->name('home');
+    Route::get('/home', [AdminController::class, 'index'])->name('home');
     Route::get('/user', [AdminController::class, 'user'])->name('admin.showuser');
     Route::get('/produk', [ProductController::class, 'all'])->name('produk.admin');
     Route::get('/add-produk', [ProductController::class, 'form'])->name('add.produk');
@@ -37,12 +38,10 @@ Route::middleware('admin')->group(function () {
 
     Route::post('/addkategori', [ProductController::class, 'tambahKategori'])->name('add.dataKategori');
     Route::post('/addvariasi', [ProductController::class, 'tambahVariasi'])->name('add.dataVariasi');
-
-
     Route::delete('/delete-users', [UserController::class, 'deleteUsers'])->name('delete.users');
 
     Route::get('/search', [SearchBar::class, 'render'])->name('search');
-});
+// });
 
 // Route::middleware('customer')->group(function () {
     Route::get('/dashboard', [ProductController::class, 'index'])->name('dashboard.user');

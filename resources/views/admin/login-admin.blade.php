@@ -1,8 +1,7 @@
 @extends('layouts.admin')
 @section('title', 'Login Admin')
 @section('content')
-<div class="controller">
-    <div class="justify-center" style="display: flex; justify-content: center; margin-top: 6rem; margin-bottom: 4rem">
+    <div class="justify-center pt-8" style="display: flex; justify-content: center; margin-bottom: 4rem">
         <div
             class="w-full max-w-sm  p-6 bg-yellow-200 border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
             <form class="space-y-3" method="POST" action="{{ Route('login-admin') }}">
@@ -46,5 +45,4 @@
             </form>
         </div>
     </div>
-</div>
 @endsection
