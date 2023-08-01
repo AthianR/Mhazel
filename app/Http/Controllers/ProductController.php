@@ -15,7 +15,20 @@ class ProductController extends Controller
 {
     public function index(Request $id)
     {
-        $data = Produk::all();
+        $data = Produk::select(
+            'tb_produk.id as id', 
+            'tb_produk.nama_produk as nama_produk', 
+            'tb_kategori.nama_kategori as nama_kategori', 
+            'tb_produk.stok as stok', 
+            'tb_produk.deskripsi as deskripsi', 
+            'tb_produk.harga as harga', 
+            'tb_produk.gambar_produk as gambar_produk', 
+            )
+        ->join('tb_kategori', 'tb_produk.kategori_id', '=', 'tb_kategori.id')
+        ->paginate(16);
+        // dd($produk);
+
+        // $data = Produk::all();
         $cart = Keranjang::select('*', DB::raw('(SELECT SUM(qty) FROM tb_keranjang WHERE tb_keranjang.produk_id = tb_produk.id) as produk_sum_qty'))
             ->join('tb_produk', 'tb_keranjang.produk_id', '=', 'tb_produk.id')
             ->orderByDesc('produk_sum_qty')
