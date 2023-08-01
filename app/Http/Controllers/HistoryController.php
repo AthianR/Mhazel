@@ -14,13 +14,22 @@ class HistoryController extends Controller
     {
         $userId = Auth::user()->id;
         $data = User::select('tb_transaksi.id as id', 'tb_transaksi.total_harga as total_harga', 'tb_transaksi.created_at as tanggal_transaksi', 'tb_produk.nama_produk as nama_produk', 'tb_keranjang.qty as qty', 'tb_transaksi.status_pembayaran as status_pembayaran', 'tb_transaksi.status_pengiriman as status_pengiriman')
-            ->join('tb_keranjang', 'users.id', '=', 'tb_keranjang.user_id')
-            ->join('tb_transaksi', 'users.id', '=', 'tb_transaksi.user_id')
-            ->join('tb_produk', 'tb_keranjang.produk_id', '=', 'tb_produk.id')
-            ->where('users.id', $userId)
-            ->paginate(1);
+        ->join('tb_keranjang', 'users.id', '=', 'tb_keranjang.user_id')
+        ->join('tb_transaksi', 'users.id', '=', 'tb_transaksi.user_id')
+        ->join('tb_produk', 'tb_keranjang.produk_id', '=', 'tb_produk.id')
+        ->where('users.id', $userId)
+        ->orderBy('tb_transaksi.created_at', 'desc') // Menyortir berdasarkan kolom created_at terbaru
+        ->paginate(1);
         // dd($data);
-        return view('history', compact('data'));
+        $produk = User::select('tb_transaksi.id as id', 'tb_transaksi.total_harga as total_harga', 'tb_transaksi.created_at as tanggal_transaksi', 'tb_produk.nama_produk as nama_produk', 'tb_keranjang.qty as qty', 'tb_transaksi.status_pembayaran as status_pembayaran', 'tb_transaksi.status_pengiriman as status_pengiriman')
+        ->join('tb_keranjang', 'users.id', '=', 'tb_keranjang.user_id')
+        ->join('tb_transaksi', 'users.id', '=', 'tb_transaksi.user_id')
+        ->join('tb_produk', 'tb_keranjang.produk_id', '=', 'tb_produk.id')
+        ->where('users.id', $userId)
+        ->orderBy('tb_transaksi.created_at', 'desc') // Menyortir berdasarkan kolom created_at terbaru
+        ->paginate(5);
+        // dd($data);
+        return view('history', compact('data', 'produk'));
     }
 
     public function store(Request $request)

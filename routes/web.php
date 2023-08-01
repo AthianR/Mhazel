@@ -31,10 +31,8 @@ use App\Http\Controllers\LoginAdminController;
     Route::get('/add-produk', [ProductController::class, 'form'])->name('add.produk');
     Route::get('/add-produk', [ProductController::class, 'ambilkategori'])->name('add.produk');
     Route::post('/add', [ProductController::class, 'storedata'])->name('add.data');
-
     Route::get('/formkategori', [ProductController::class, 'formKategori'])->name('add.kategori');
     Route::get('/formvariasi', [ProductController::class, 'formVariasi'])->name('add.variasi');
-
     Route::post('/addkategori', [ProductController::class, 'tambahKategori'])->name('add.dataKategori');
     Route::post('/addvariasi', [ProductController::class, 'tambahVariasi'])->name('add.dataVariasi');
     Route::delete('/delete-users', [UserController::class, 'deleteUsers'])->name('delete.users');
@@ -43,7 +41,7 @@ use App\Http\Controllers\LoginAdminController;
 // });
 
 // Route::middleware('customer')->group(function () {
-    Route::get('/dashboard', [ProductController::class, 'index'])->name('dashboard.user');
+    Route::get('/dashboard', [ProductController::class, 'index'])->name('dashboard.user')->middleware('auth');
     Route::get('/cart', [KeranjangController::class, 'index'])->name('cart');
     Route::post('/add-to-cart', [KeranjangController::class, 'addToCart'])->name('add.to.cart');
     Route::delete('/delete/cart/{id}', [KeranjangController::class, 'deleteCart'])->name('delete.cart');
@@ -55,6 +53,7 @@ use App\Http\Controllers\LoginAdminController;
     Route::get('/checkout', [KeranjangController::class, 'checkout'])->name('checkout');
     Route::get('/profile/user', [UserController::class, 'profile'])->name('profile.user');
     Route::post('/update/profile', [UserController::class, 'update'])->name('update.user');
+    Route::get('/rekomendasi', [UserController::class, 'rekomendasi'])->name('rekomendasi.user');
 // });
 
 Route::get('/', [ProductController::class, 'index'])->name('dashboard');

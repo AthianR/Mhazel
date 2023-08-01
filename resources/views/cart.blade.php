@@ -211,7 +211,6 @@
                                                         <h3
                                                             class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
                                                             Harap isi alamat pada profile kamu!</h3>
-                                                        
                                                         <button data-modal-hide="popup-modal" type="button"
                                                             class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
                                                             <a href="{{ route('profile.user') }} ">Ya isi alamat</a>

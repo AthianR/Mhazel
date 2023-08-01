@@ -24,9 +24,9 @@
                             <th scope="col" class="px-6 py-3">
                                 Nama Produk
                             </th>
-                            <th scope="col" class="px-6 py-3">
+                            {{-- <th scope="col" class="px-6 py-3">
                                 Qty
-                            </th>
+                            </th> --}}
                             <th scope="col" class="px-6 py-3">
                                 Total Harga
                             </th>
@@ -57,20 +57,19 @@
                                     <td class="w-4 p-4">
                                         <div class="flex items-center">
                                             {{ $no++ }}
-                                            {{-- <input id="checkbox{{ $item->id }}" type="checkbox" name="item[]"
-                                            class="checkSingle w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                        <label for="checkbox{{ $item->id }}" class="sr-only">checkbox</label> --}}
                                         </div>
                                     </td>
                                     <td class="px-6">
                                         {{ \Carbon\Carbon::parse($item->tanggal_transaksi)->format('l, d F Y') }}
                                     </td>
                                     <td scope="row" class="px-6  font-semibold text-gray-900 dark:text-white">
-                                        {{ $item->nama_produk }}
+                                        @foreach ($produk as $it)
+                                        {{ $it->nama_produk }}, 
+                                        @endforeach
                                     </td>
-                                    <td class="px-6">
+                                    {{-- <td class="px-6">
                                         {{ $item->qty }}
-                                    </td>
+                                    </td> --}}
                                     <td class="px-6">
                                         Rp. {{ number_format($item->total_harga) }}
                                     </td>
@@ -83,7 +82,6 @@
                                 </tr>
                             @endforeach
                             <tr>
-                                <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
