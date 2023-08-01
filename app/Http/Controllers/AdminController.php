@@ -34,9 +34,4 @@ class AdminController extends Controller
         // Redirect kembali ke halaman sebelumnya dengan pesan berhasil
         return back()->with('success', 'Data berhasil dihapus.');
     }
-
-    public function __construct()
-    {
-        $this->middleware('admin')->only(['index', 'user', 'deleteSelectedUsers']);
-    }
 }

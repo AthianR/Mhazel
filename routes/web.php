@@ -25,8 +25,7 @@ use App\Http\Controllers\LoginAdminController;
 */
 
 // Route::middleware('admin')->group(function () {
-    // Route::get('/home', [AdminController::class, 'index'])->name('home');
-    Route::get('/home', [AdminController::class, 'index'])->name('home');
+    Route::get('/dashboard/admin', [AdminController::class, 'index'])->name('dashboard.admin');
     Route::get('/user', [AdminController::class, 'user'])->name('admin.showuser');
     Route::get('/produk', [ProductController::class, 'all'])->name('produk.admin');
     Route::get('/add-produk', [ProductController::class, 'form'])->name('add.produk');
@@ -53,6 +52,7 @@ use App\Http\Controllers\LoginAdminController;
     Route::post('/cartadd', [KeranjangController::class, 'store'])->name('add.qty');
     Route::post('/cartmin', [KeranjangController::class, 'destroy'])->name('min.qty');
     Route::post('/addtransaksi', [HistoryController::class, 'store'])->name('add.transaksi');
+    Route::get('/checkout', [KeranjangController::class, 'checkout'])->name('checkout');
 // });
 
 Route::get('/', [ProductController::class, 'index'])->name('dashboard');
@@ -64,7 +64,7 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/loginuser', [LoginController::class, 'login'])->name('loginuser');
 
 Route::get('/loginadmin', [LoginAdminController::class, 'index'])->name('loginadmin');
-Route::post('/login-admin', [LoginAdminController::class, 'loginadmin'])->name('login-admin');
+Route::post('/login/admin', [LoginAdminController::class, 'loginadmin'])->name('adminlogin');
 
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 

@@ -187,4 +187,21 @@ class KeranjangController extends Controller
             ->route('cart')
             ->with('success', 'Produk berhasil dihapus dari keranjang.');
     }
+
+    public function checkout(){
+        $nilaiDefaultQty = 1;
+        $userId = Auth::user()->id;
+        $user = User::join('tb_profile', 'tb_profile.user_id', '=', 'users.id')
+            ->where('users.id', $userId)
+            ->select('users.nama_lengkap as nama_lengkap', 'tb_profile.alamat_user as alamat_user', 'tb_profile.phone as phone', 'tb_profile.alamat_user as alamat_pengiriman')
+            ->get();
+        $data = Keranjang::select('tb_produk.id as produk_id', 'tb_keranjang.id as id', 'tb_produk.nama_produk as nama_produk', 'tb_keranjang.qty as qty', 'tb_produk.harga as harga', 'tb_produk.gambar_produk as gambar_produk', 'tb_varian.nama_variasi as nama_variasi')
+            ->join('users', 'tb_keranjang.user_id', '=', 'users.id')
+            ->join('tb_produk', 'tb_keranjang.produk_id', '=', 'tb_produk.id')
+            ->join('tb_varian', 'tb_produk.variasi_id', '=', 'tb_varian.id')
+            ->where('users.id', $userId)
+            ->get();
+        // dd($data);
+        return view('checkout', compact('data', 'user', 'nilaiDefaultQty'));
+    }
 }

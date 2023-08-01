@@ -22,10 +22,17 @@ class LoginAdminController extends Controller
         if (Auth::attempt($credentials) && Auth::user()->role_id === 1) {
             // Jika user berhasil login dan memiliki role_id = 1 (misalnya role customer)
             return redirect()
-                ->route('home')
+                ->route('dashboard.admin')
                 ->with('success', 'Berhasil Login');
-        }
-         else {
+        } if (Auth::attempt($credentials) && Auth::user()->role_id === 2) {
+            Auth::logout();
+
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+    
+            return redirect('/loginadmin')->with('error', 'Gagal Login.');
+        } 
+        else {
             // Jika login gagal atau user tidak memiliki role tertentu, kembali ke halaman login dengan pesan error
             return back()->withErrors([
                 'email' => 'Invalid email or password.',

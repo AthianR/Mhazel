@@ -20,6 +20,6 @@ class AdminMiddleware
             return $next($request);
         }
 
-        return redirect()->route('home')->with('error', 'You are not authorized.');
+        return redirect()->route('loginadmin')->with('error', 'You are not authorized.');
     }
 }
