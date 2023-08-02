@@ -252,5 +252,6 @@ class ProdukSeeder extends Seeder
             'kategori_id' => 3, 
             'variasi_id' => 3, 
         ]);
+        
     }
 }
