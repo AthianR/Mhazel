@@ -30,7 +30,7 @@ class ProdukSeeder extends Seeder
             'deskripsi' => '100% merek baru dan kualitas tinggi. Mudah untuk memegang kunci Mobil Anda dan barang-barang kecil. Bahan: Logam + Kulit. Ukuran: 8 cm panjang. Paket Termasuk: 1 x Gantungan Kunci',
             'harga' => 55000,
             'stok' => 100,
-            'gambar_produk' => 'GantunganBrio.png',
+            'gambar_produk' => 'GesperAnyam.png',
             'kategori_id' => 1,
             'variasi_id' => 1, 
         ]);
@@ -241,6 +241,16 @@ class ProdukSeeder extends Seeder
             'gambar_produk' => 'GantunganBrio.png',
             'kategori_id' => 2, 
             'variasi_id' => 2, 
+        ]);
+
+        Produk::create([
+            'nama_produk' => '',
+            'deskripsi' => '',
+            'harga' => 0,
+            'stok' => 0,
+            'gambar_produk' => '',
+            'kategori_id' => 3, 
+            'variasi_id' => 3, 
         ]);
     }
 }
