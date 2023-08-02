@@ -36,6 +36,7 @@ use App\Http\Controllers\LoginAdminController;
     Route::post('/addkategori', [ProductController::class, 'tambahKategori'])->name('add.dataKategori');
     Route::post('/addvariasi', [ProductController::class, 'tambahVariasi'])->name('add.dataVariasi');
     Route::delete('/delete-users', [UserController::class, 'deleteUsers'])->name('delete.users');
+    Route::post('/delete/kategori/{id}', [ProductController::class, 'destroyKategori'])->name('hapus.kategori');
 
     Route::get('/search', [SearchBar::class, 'render'])->name('search');
 // });

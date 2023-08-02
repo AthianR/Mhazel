@@ -49,43 +49,57 @@
                             <ul
                                 class="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
                                 <li>
-                                    <a href="#" class="block py-2 pl-3 pr-4 text-black rounded dark:bg-blue-600"
-                                        aria-current="page">Home</a>
+                                    <a href="{{ route('dashboard.admin') }}"
+                                        class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                                        aria-current="page">Dashboard</a>
                                 </li>
                                 <li>
-                                    <a href="#"
-                                        class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Services</a>
+                                    <a href="{{ route('admin.showuser') }}"
+                                        class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Daftar
+                                        User</a>
                                 </li>
-                                <li>
-                                    <a href="#"
-                                        class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white">Pricing</a>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                        class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Contact</a>
-                                </li>
-                                <hr>
                                 <li>
                                     <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
-                                        class="flex py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Dropdown
+                                        class="flex py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Tambah
+                                        Data
                                         <svg class="w-2.5 h-7 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                             fill="none" viewBox="0 0 10 6">
                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                                 stroke-width="2" d="m1 1 4 4 4-4" />
-                                        </svg></button>
+                                        </svg>
+                                    </button>
+                                </li>
+                                <li>
+                                    <a href="{{ route('produk.admin') }}"
+                                        class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Daftar
+                                        Produk</a>
+                                </li>
+                                <hr>
+                                <li>
+                                    <div class="flex items-center p-2">
+                                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 15">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M1 7.5h11m0 0L8 3.786M12 7.5l-4 3.714M12 1h3c.53 0 1.04.196 1.414.544.375.348.586.82.586 1.313v9.286c0 .492-.21.965-.586 1.313A2.081 2.081 0 0 1 15 14h-3" />
+                                        </svg>
+                                        <a href="{{ Route('logout') }}"
+                                            class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Sign
+                                            out</a>
+                                    </div>
+
                                 </li>
                                 <div id="dropdownNavbar"
-                                    class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600">
-                                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-400"
+                                    class="z-10 hidden font-normal bg-yellow-200 divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600">
+                                    <ul class="py-2 text-md text-gray-700 dark:text-gray-400"
                                         aria-labelledby="dropdownLargeButton">
                                         <li>
-                                            <a href="#"
-                                                class="block px-2 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                                            <a href="{{ Route('add.produk') }}"
+                                                class="block px-2 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Tambah Produk</a>
                                         </li>
                                         <li>
-                                            <a href="{{ Route('logout') }}"
-                                                class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign
-                                                out</a>
+                                            <a href="{{ route('add.kategori') }}"
+                                                class="block px-2 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Tambah Kategori</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -100,7 +114,8 @@
                     <a href="#" class="flex items-center">
                         <img src="icon/apple-icon-57x57.png" class="h-8 mr-3" style="border-radius: 45%"
                             alt="Mhazel Logo" />
-                        <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Mhazel</span>
+                        <span
+                            class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Mhazel</span>
                     </a>
                 </div>
             </nav>
@@ -115,7 +130,8 @@
             </div>
         @endif
         @if ($errors->any())
-            <div id="alert-error" class="alert alert-danger" style="display: flex; position: absolute; z-index: 1000">
+            <div id="alert-error" class="alert alert-danger"
+                style="display: flex; position: absolute; z-index: 1000">
                 @foreach ($errors->all() as $error)
                     <p>{{ $error }}</p>
                 @endforeach

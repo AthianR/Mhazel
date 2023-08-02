@@ -22,10 +22,6 @@ class UserController extends Controller
             ->back()
             ->with('success', 'Users berhasil dihapus.');
     }
-    public function __construct()
-    {
-        $this->middleware('admin')->only(['deleteUsers']);
-    }
 
     public function detailProfile(){
         $user = Auth::user();

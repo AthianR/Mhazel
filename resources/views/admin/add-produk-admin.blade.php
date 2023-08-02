@@ -2,7 +2,7 @@
 @section('title', 'add-produk')
 @section('content')
     <div class="container">
-        <div class="pb-4 pt-4 sm:ml-64">
+        <div class="pb-4 pt-4">
             <div class="p-2 border-2 border-gray-900 border-dashed rounded-lg dark:border-gray-700">
                 @if ($errors->any())
                     <div class="alert alert-danger">

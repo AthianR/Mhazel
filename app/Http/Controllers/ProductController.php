@@ -120,25 +120,41 @@ class ProductController extends Controller
 
     public function formKategori()
     {
-        $data = DB::table('tb_kategori')->get();
+        $data = Kategori::all();
         // dd($data);
         return view('admin.form-kategori', compact('data'));
     }
 
     public function tambahKategori(Request $request)
     {
+        
         $validatedData = $request->validate([
             'nama_kategori' => 'required|string|max:255',
         ]);
 
         $kategori = Kategori::create([
-            'kategori' => $validatedData['nama_kategori'],
+            'nama_kategori' => $validatedData['nama_kategori'],
         ]);
-
         // Set flash data for success message with time
         $request->session()->flash('success', 'Berhasil Menambahkan Data Kategori pada ' . now()->toDateTimeString());
 
         return redirect()->route('add.kategori');
+    }
+
+    public function destroyKategori($id)
+    {
+        $kategori = Kategori::find($id);
+        if (!$kategori) {
+            // Jika keranjang tidak ditemukan, tampilkan pesan error atau arahkan kembali ke halaman sebelumnya
+            return back()->withErrors(['message' => 'Kategori tidak ditemukan.']);
+        }
+
+        // Hapus produk dari keranjang
+        $kategori->delete();
+
+        return redirect()
+            ->route('add.kategori')
+            ->with('success', 'Kategori berhasil dihapus.');
     }
 
     public function formVariasi()
@@ -170,8 +186,8 @@ class ProductController extends Controller
         return redirect()->route('add.variasi');
     }
 
-    public function __construct()
-    {
-        $this->middleware('admin')->only(['all', 'ambilkategori', 'storedata', 'form', 'formKategori', 'tambahKategori', 'formVariasi', 'tambahVariasi']);
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('admin')->only(['all', 'ambilkategori', 'storedata', 'form', 'formKategori', 'tambahKategori', 'formVariasi', 'tambahVariasi']);
+    // }
 }

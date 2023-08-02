@@ -27,10 +27,18 @@ class AdminController extends Controller
 
     public function user(Request $id)
     {
-        $user = 'customer';
-        $data = User::where('role', $user)
-            ->paginate(5)
-            ->onEachSide(4);
+        $user = 2;
+        $data = User::select(
+            'users.id as user_id', 
+            'tb_role.nama_role as nama_role',
+            'users.email as email',
+            // 'tb_profile.status as status_user',
+            'users.nama_lengkap as nama_lengkap')
+            ->join('tb_role', 'users.role_id', '=', 'tb_role.id')
+            // ->join('tb_profile', 'users.id' ,'=', 'tb_profile.user_id')
+            ->where('users.role_id', $user)
+            ->paginate(10);
+        
         // dd($data);
         return view('admin.user-admin', compact('data'));
     }
