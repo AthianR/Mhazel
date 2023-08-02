@@ -41,7 +41,7 @@ class ProdukSeeder extends Seeder
                                     Untuk tampilan Anda lebih keren. Bahan Metal silver Bahan anti gores ',
             'harga' => 29900,
             'stok' => 100,
-            'gambar_produk' => 'GantunganBrio.png',
+            'gambar_produk' => 'GantunganMotor.png',
             'kategori_id' => 1, 
             'variasi_id' => 1, 
         ]);
@@ -51,7 +51,7 @@ class ProdukSeeder extends Seeder
             'deskripsi' => 'Gantungan sarung remote  model anyam, kini tampil lebih exclusive untuk di gantung di pinggang dan anti hilang. Di desain dengan ukiran logo, menggunakan Laser cutting, membuat tampilannya menjadi lebih keren dan rapih. Bahan : kulit kualitas premium, metal, silikon terbuat dari bahan karet.',
             'harga' => 69000,
             'stok' => 100,
-            'gambar_produk' => 'GantunganBrio.png',
+            'gambar_produk' => 'GantunganHrv.png',
             'kategori_id' => 1, 
             'variasi_id' => 1, 
         ]);
@@ -61,7 +61,7 @@ class ProdukSeeder extends Seeder
             'deskripsi' => 'Gantungan sarung remot berlogo ukiran DAIHATSU model anyam, kini tampil lebih exclusive untuk di gantung di pinggang dan anti hilang. Di desain dengan ukiran logo, menggunakan Laser cutting, membuat tampilannya menjadi lebih keren dan rapih. Bahan : kulit kualitas premium, metal, silikon terbuat dari bahan karet',
             'harga' => 69000,
             'stok' => 100,
-            'gambar_produk' => 'GantunganBrio.png',
+            'gambar_produk' => 'GesperAnyam.png',
             'kategori_id' => 1, 
             'variasi_id' => 1, 
         ]);
@@ -82,7 +82,7 @@ class ProdukSeeder extends Seeder
             'deskripsi' => 'Gantungan kunci sarung remote keyless untuk Motor Honda ALL NEW SCOOPY new 2023, Dengan 2 tombol remot kontrol. Bahan : Stainlees steel import, Warna hitam, plastik model karbon. 1SET dapat Sarung kulit, silikon, plastik dan Gantungan. PASTIKAN BENTUK REMOTE/KEYLESS MOTOR ANDA SAMA DENGAN GAMBAR DESKRIPSI. ',
             'harga' => 55000,
             'stok' => 100,
-            'gambar_produk' => 'GantunganBrio.png',
+            'gambar_produk' => 'gantungan kunci case cover sarung remote keyless motor honda all new scoopy 2023 up.png',
             'kategori_id' => 1, 
             'variasi_id' => 1, 
         ]);
@@ -93,7 +93,7 @@ class ProdukSeeder extends Seeder
                                     Untuk tampilan Anda lebih keren. Bahan : Metal silver, kulit berkualitas dengan lampu LED, Bisa di jadikan pembuka tutup botol dan Bahan anti gores.',
             'harga' => 79000,
             'stok' => 100,
-            'gambar_produk' => 'GantunganBrio.png',
+            'gambar_produk' => 'GantunganHrv.png',
             'kategori_id' => 1, 
             'variasi_id' => 1, 
         ]);
@@ -103,7 +103,7 @@ class ProdukSeeder extends Seeder
             'deskripsi' => 'Gantungan kunci sarung remote keyless untuk Mobil honda freed. Bahan : Kulit berkualitas tinggi, Metal, Kulit. 1SET dapat Sarung silikon dan Gantungan. Melindungi Keyless remote anda dari terjatuh, goresan,debu,korosi dll. Silikon untuk remot kontrol dengan 4 tombol dan 3 tombol. PASTIKAN BENTUK REMOTE/KEYLESS MOBIL ANDA SAMA DENGAN GAMBAR DESKRIPSI.',
             'harga' => 69000,
             'stok' => 100,
-            'gambar_produk' => 'GantunganBrio.png',
+            'gambar_produk' => 'GantunganFreed.png',
             'kategori_id' => 1, 
             'variasi_id' => 1, 
         ]);
@@ -113,7 +113,7 @@ class ProdukSeeder extends Seeder
             'deskripsi' => 'Gantungan kunci sarung remote keyless untuk Motor Honda VARIO 160, Dengan 2 tombol remot kontrol. Bahan : Stainlees steel import, Warna hitam plastik model karbon. Pilihan warna case : HITAM SILVER & HITAM GOLD. Melindungi Keyless remote anda dari terjatuh, goresan,debu,korosi dll. PASTIKAN BENTUK REMOTE/KEYLESS MOTOR ANDA SAMA DENGAN GAMBAR DESKRIPSI.',
             'harga' => 55000,
             'stok' => 100,
-            'gambar_produk' => 'GantunganBrio.png',
+            'gambar_produk' => 'GantunganVario.png',
             'kategori_id' => 1, 
             'variasi_id' => 1, 
         ]);
@@ -123,7 +123,7 @@ class ProdukSeeder extends Seeder
             'deskripsi' => 'Gantungan sarung remot berlogo ukiran TOYOTA model anyam, kini tampil lebih exclusive untuk di gantung di pinggang dan anti hilang. Di desain dengan ukiran logo, menggunakan Laser cutting, membuat tampilannya menjadi lebih keren dan rapih. FIT FOR KEY: GRAND AVANZA, AGYA, CALYA. Bahan : kulit kualitas premium, metal, silikon terbuat dari bahan karet.',
             'harga' => 69000,
             'stok' => 100,
-            'gambar_produk' => 'GantunganBrio.png',
+            'gambar_produk' => 'GantunganAvanza.png',
             'kategori_id' => 1, 
             'variasi_id' => 1, 
         ]);
@@ -132,7 +132,7 @@ class ProdukSeeder extends Seeder
             'deskripsi' => 'Gantungan kunci sarung remote keyless untuk Mobil TOYOTA RUSH dan ALL NEW AVANZA GR SPORT, Dengan 2 tombol remot kontrol. Bahan : Kulit berkualitas tinggi, Stainlees steel import, Jahitan benang hitam dan merah rapih. Melindungi Keyless remote anda dari terjatuh, goresan,debu,korosi dll. PASTIKAN BENTUK REMOTE/KEYLESS MOBIL ANDA SAMA DENGAN GAMBAR DESKRIPSI.',
             'harga' => 85000,
             'stok' => 100,
-            'gambar_produk' => 'GantunganBrio.png',
+            'gambar_produk' => 'GantunganRush.png',
             'kategori_id' => 1, 
             'variasi_id' => 1, 
         ]);
@@ -141,16 +141,16 @@ class ProdukSeeder extends Seeder
             'deskripsi' => 'Sarung silikon remote motor Honda PCX 150 ADV 150 FORZA. Melindungi Keyless remote anda dari terjatuh, goresan,debu,korosi dll.',
             'harga' => 20000,
             'stok' => 100,
-            'gambar_produk' => 'GantunganBrio.png',
+            'gambar_produk' => 'SarungPcx.png',
             'kategori_id' => 1, 
             'variasi_id' => 1, 
         ]);
         Produk::create([
-            'nama_produk' => 'GANTUNGAN KUNCI SARUNG COVER REMOTE MOBIL TOYOTA ERIOS VALCO AVANZA VELOZ 2012 2015 MODEL ANYAM',
+            'nama_produk' => 'GANTUNGAN KUNCI SARUNG COVER REMOTE MOBIL TOYOTA TERIOS VALCO AVANZA VELOZ 2012 2015 MODEL ANYAM',
             'deskripsi' => 'Gantungan sarung remot berlogo ukiran toyota model anyam, kini tampil lebih exclusive untuk di gantung di pinggang dan anti hilang. FOR KEY: AVANZA VELOZ 2012 2015 DAN ETIOS VALCO. Di desain dengan ukiran logo, menggunakan Laser cutting, membuat tampilannya menjadi lebih keren dan rapih. Bahan : kulit kualitas premium, metal, silikon terbuat dari bahan karet.',
             'harga' => 69000,
             'stok' => 100,
-            'gambar_produk' => 'GantunganBrio.png',
+            'gambar_produk' => 'GantunganVeloz.png',
             'kategori_id' => 1, 
             'variasi_id' => 1, 
         ]);
@@ -159,7 +159,7 @@ class ProdukSeeder extends Seeder
             'deskripsi' => 'silikon untuk Keyless motor Yamaha AEROX XMAX LEXI ALL NEW NMAX FAZZIO. melindungi keyless Anda dari debu cipratan air dan gesekan yang membuat baret baret. Dengan harga yang sesuai dan kualitas barang sangat bagus.',
             'harga' => 20000,
             'stok' => 100,
-            'gambar_produk' => 'GantunganBrio.png',
+            'gambar_produk' => 'SilikonNmax.png',
             'kategori_id' => 1, 
             'variasi_id' => 1, 
         ]);
@@ -168,7 +168,7 @@ class ProdukSeeder extends Seeder
             'deskripsi' => 'Gantungan kunci sarung remote keyless untuk Motor Honda PCX 160. Bahan : Kulit berkualitas, Stainlees steel import, Warna hitam plastik model karbon. 1SET dapat Cover/casing plastik dan Gantungan. Melindungi Keyless remote anda dari terjatuh, goresan,debu,korosi dll. PASTIKAN BENTUK REMOTE/KEYLESS MOTOR ANDA SAMA DENGAN GAMBAR DESKRIPSI',
             'harga' => 55000,
             'stok' => 100,
-            'gambar_produk' => 'GantunganBrio.png',
+            'gambar_produk' => 'GantunganCover.png',
             'kategori_id' => 1, 
             'variasi_id' => 1, 
         ]);
@@ -182,7 +182,7 @@ class ProdukSeeder extends Seeder
             BARANG RENTAN PECAH !!! (KERUSAKAN DALAM PENGIRIMAN BUKAN TANGGUNG JAWAB PENJUAL. BELI = SETUJU NO RETUREN)',
             'harga' => 20000,
             'stok' => 100,
-            'gambar_produk' => 'GantunganBrio.png',
+            'gambar_produk' => 'Cairan obat pembersih kerak kaca body mobil motor penghilang serbaguna.png',
             'kategori_id' => 2, 
             'variasi_id' => 2, 
         ]);
@@ -192,7 +192,7 @@ class ProdukSeeder extends Seeder
             Cat oles ini bersifat permanen dan tidak beracun, tahan terhadap air hujan ketika kering seperti cat pada umumnya.',
             'harga' => 17500,
             'stok' => 100,
-            'gambar_produk' => 'GantunganBrio.png',
+            'gambar_produk' => 'cat oles spidol penghilang baret lecet mobil motor car scratch repair pen.png',
             'kategori_id' => 2, 
             'variasi_id' => 2, 
         ]);
@@ -201,7 +201,7 @@ class ProdukSeeder extends Seeder
             'deskripsi' => 'pembersih Fitur khusus: perawatan cat Lebar barang: 10cm Nama Model: MC-308. Diameter barang: 1.5cm, Tinggi barang: 3cm, Panjang barang: 12 cm, Jenis bahan: lilin Slop, Volume Item: 15g . Jenis Item : Set bahan poles & penggilingan Sertifikasi. Penggunaan: cat perawatan cat pembersih perawatan untuk mobil anda yang terkena baret agar body mobil kembali mulus. note : UNTUK BARET HALUS TIDAK BISA UNTUK WARNA DOFF. Untuk mobil: segel mengkilap untuk cat mobil lapisan pelindung lilin keras',
             'harga' => 19900,
             'stok' => 100,
-            'gambar_produk' => 'GantunganBrio.png',
+            'gambar_produk' => 'kompon atau compond kumpon penghilang baret cat body mobil motor.png',
             'kategori_id' => 2, 
             'variasi_id' => 2, 
         ]);
@@ -210,7 +210,7 @@ class ProdukSeeder extends Seeder
             'deskripsi' => 'Bahan : boric acid + benzoic acid, Ukuran produk : 12*18*1cm, Kategori : lem pembersih. Cara menggunakan produk : Tempelkan gel ini secara merata pada bagian bagian sulit yang kotor, kemudian kotoran kotoran pada permukaan akan hilang. Interior anda akan bersih kembali. Bisa digunakan juga pada peralatan rumah dan kantor.',
             'harga' => 7900,
             'stok' => 100,
-            'gambar_produk' => 'GantunganBrio.png',
+            'gambar_produk' => 'GEL PEMBERSIH KOTORAN DEBU KEYBOARD SELA AC DASBOARD MOBIL LACI.png',
             'kategori_id' => 2, 
             'variasi_id' => 2, 
         ]);
@@ -219,7 +219,7 @@ class ProdukSeeder extends Seeder
             'deskripsi' => 'Degreaser adalah cairan pembersih yang mengandung bahan kimia tertentu  sehingga dapat dengan mudah mengangkat kotoran yang menempel pada mesin, body unit hingga peralatan lainnya. Cara pemakaian : Tuang ke wadah plastik, Basahi bagian yang akan dibersihkan, oleskan Degreaser, Gosok dan sikat (kuas/sikat gigi bekas) hingga kotoran dan oli melunak, bilas dengan air mengalir. Bisa juga untuk cuci tangan montir yang berlumuran oli karena aman untuk kulit.dengan air bersih sambil disikat bila perlu.',
             'harga' => 29900,
             'stok' => 100,
-            'gambar_produk' => 'GantunganBrio.png',
+            'gambar_produk' => 'DEGREASER PEMBERSIH MESIN MOBIL DAN MOTOR KUALITAS PREMIUM.png',
             'kategori_id' => 2, 
             'variasi_id' => 2, 
         ]);
@@ -229,7 +229,7 @@ class ProdukSeeder extends Seeder
             Semua jenis cat. Cara Pemakaian : Tuangkan 1 tutup botol shampo dengan 1 liter - 2 liter air bersih lalu aduk hingga merata dan shampo salju siap untuk digunakan ',
             'harga' => 16900,
             'stok' => 100,
-            'gambar_produk' => 'GantunganBrio.png',
+            'gambar_produk' => 'SHAMPO SNOW WASH MOBIL DAN MOTOR PREMIUM.png',
             'kategori_id' => 2, 
             'variasi_id' => 2, 
         ]);
@@ -238,20 +238,111 @@ class ProdukSeeder extends Seeder
             'deskripsi' => 'FUNGSI: Sebagai semi coating yang bisa melindungi cat body dan kaca kendaraan dari debu berlebih, Bekerja seperti daun talas yang melindungi cat body dan kaca kendaraan dari air hujan dan banyak lagi. Bahan terbuat dari komposisi hydropobic yang AMAN untuk seluruh cat body dan kaca semua kendaraan. CARA PAKAI SEALANT GUARD: Pastikan cuci terlebih dahulu dan tunggu hingga kering dulu, Kocok dan semprotkan sealant guard pada cat body atau kaca dn diamkn (4-5 detik), Usapkan menggunakn lap bersih/microfiber dengan merata.',
             'harga' => 45000,
             'stok' => 100,
-            'gambar_produk' => 'GantunganBrio.png',
+            'gambar_produk' => 'SEALANT GUARD CAIRAN PENGKILAP BODY MOBIL DAN MOTOR.png',
             'kategori_id' => 2, 
             'variasi_id' => 2, 
         ]);
 
         Produk::create([
-            'nama_produk' => '',
-            'deskripsi' => '',
-            'harga' => 0,
-            'stok' => 0,
-            'gambar_produk' => '',
+            'nama_produk' => 'STIKER PELINDUNG ANTI GORES SPIDOMETER MOTOR HONDA PCX 150 PCX 160',
+            'deskripsi' => 'Dengan memakai stiker pelindung ini: Terbebas dari sorotan sinar matahari langsung. Tidak mudah tergores. Daya rekat kuat dan tidak meninggalkan bekas lem ketika dilepas jadi aman suatu saat anda ingin mengganti lagi dengan yang baru.Sudah terpotong persisi mengikuti bentuk pola spidometer, jadi tidak perlu lagi dipotong manual menghindari resiko goresan cutter.',
+            'harga' => 10000,
+            'stok' => 100,
+            'gambar_produk' => 'STIKER PELINDUNG ANTI GORES SPIDOMETER MOTOR HONDA PCX 150 PCX 160.png',
+            'kategori_id' => 4, 
+            'variasi_id' => 4, 
+        ]);
+
+        Produk::create([
+            'nama_produk' => 'Tankpad stiker anti gores pelindung tutup bensin motor honda all new pcx 160',
+            'deskripsi' => 'TANK PAD PELINDUNG GORESAN DI MOTOR ALL NEW PCX 160 ANDA. Setelah dipasang stiker tank pad ini bagian motor yang sudah di pasang jangan di cuci selama 3 hari.
+            untuk menghindari air masuk ke perekat stiker yang belum kering.',
+            'harga' => 45000,
+            'stok' => 100,
+            'gambar_produk' => 'Tankpad stiker anti gores pelindung tutup bensin motor honda all new pcx 160.png',
+            'kategori_id' => 4, 
+            'variasi_id' => 4, 
+        ]);
+
+        Produk::create([
+            'nama_produk' => 'stiker anti gores pelindung spidometer motor honda Vario 150 Vario 160',
+            'deskripsi' => 'Stiker pelindung spidometer motor honda VARIO 150 agar terhindar dari goresan yang membuat cacat kaca/mika nya. Dengan memakai stiker pelindung ini terbebas dari sorotan sinar matahari langsung.',
+            'harga' => 5000,
+            'stok' => 100,
+            'gambar_produk' => 'stiker anti gores pelindung spidometer motor honda Vario 150 Vario 160.png',
+            'kategori_id' => 4, 
+            'variasi_id' => 4, 
+        ]);
+
+        Produk::create([
+            'nama_produk' => 'stiker sticker pelindung anti gores spidometer motor honda vario 160',
+            'deskripsi' => 'Stiker pelindung spidometer motor honda vario 160 agar terhindar dari goresan yang membuat cacat kaca/mika nya. Dengan memakai stiker pelindung ini, terbebas dari sorotan sinar matahari langsung. Tidak mudah tergores material bahan berkwalitas oracal 651 made in germany',
+            'harga' => 5000,
+            'stok' => 100,
+            'gambar_produk' => 'stiker sticker pelindung anti gores spidometer motor honda vario 160.png',
+            'kategori_id' => 4, 
+            'variasi_id' => 4, 
+        ]);
+
+        Produk::create([
+            'nama_produk' => 'OBENG MINI SET 31 IN 1 TOOLS',
+            'deskripsi' => 'Set obeng kecil lengkap yang terdiri dari 30 kepala obeng + 1 pegangan. Ujung obeng bersifat magnetik. Setiap rumah wajib memiliki setidaknya 1 set obeng ini.',
+            'harga' => 18000,
+            'stok' => 100,
+            'gambar_produk' => 'OBENG MINI SET 31 IN 1 TOOLS.png',
+            'kategori_id' => 4, 
+            'variasi_id' => 4, 
+        ]);
+
+        Produk::create([
+            'nama_produk' => 'LAP KAIN DETAILING MICROFIBER 500gsm WAX MOBIL MOTOR',
+            'deskripsi' => 'Lap Kain Detailing 500 gsm microfiber, Material : 500 gsm high quality microfiber. Fungsi : dengan bahan yang tebal dan halus , cocok sekali untuk detailing , dan mengelap permukaan yang rawan lecet , daya hisap yang sangat tinggi.',
+            'harga' => 15000,
+            'stok' => 100,
+            'gambar_produk' => 'LAP KAIN DETAILING MICROFIBER 500gsm WAX MOBIL MOTOR.png',
             'kategori_id' => 3, 
             'variasi_id' => 3, 
         ]);
-        
+
+        Produk::create([
+            'nama_produk' => 'KANEBO LAP REFIL TEBAL BERKUALITAS UKURAN 42X32 Tebal 2mm',
+            'deskripsi' => 'BAHAN DIJAMIN MENYERAP AIR SUPER HIGH QUALITY WARNA : RANDOM TIDAK BISA PILIH WARNA, UKURAN : 32 X 40, TEBAL : 2 MM',
+            'harga' => 9900,
+            'stok' => 100,
+            'gambar_produk' => 'KANEBO LAP REFIL TEBAL BERKUALITAS UKURAN 42X32 Tebal 2mm.png',
+            'kategori_id' => 3, 
+            'variasi_id' => 3, 
+        ]);
+
+        Produk::create([
+            'nama_produk' => 'busa sponge cuci mobil motor bentuk 8 tebal',
+            'deskripsi' => 'Portable 8 Bentuk Mobil Cuci Kaca Cleaner Wax Spons Busa Auto Cleaning Alat Pembersih Jendela Otomatis Aksesoris Mobil Portable betuk 8. cara untuk Penggunaan Profesional,  Portable dan Tahan Lama, Mudah Dibawa, Ringan.  Efektif Menghilangkan Kotoran Burung, Lak, Permen Karet, Sedikit Goresan Pada Mobil dan Jendela.',
+            'harga' => 7000,
+            'stok' => 100,
+            'gambar_produk' => 'busa sponge cuci mobil motor bentuk 8 tebal.png',
+            'kategori_id' => 3, 
+            'variasi_id' => 3, 
+        ]);
+
+        Produk::create([
+            'nama_produk' => 'Bantalan / Peredam Getaran Pintu Mobil Logo Honda',
+            'deskripsi' => 'Bantalan Sillicone terbaru dari Price Priority,
+            product ini memang kecil, namun memberikan hasil yang signifikan, yaitu membantu meredam getaran / bunti saat anda menutup pintu mobil, selain itu estetika membuat kendaraan berasa mewah.',
+            'harga' => 12900,
+            'stok' => 100,
+            'gambar_produk' => 'Bantalan Peredam Getaran Pintu Mobil Logo Honda.png',
+            'kategori_id' => 3, 
+            'variasi_id' => 3, 
+        ]);
+
+        Produk::create([
+            'nama_produk' => 'GANTUNGAN BARANG MOBIL CAR SEAT HANGER HOOK HOLDER BAG ORGANIZER 2 in 1',
+            'deskripsi' => 'Sering Belanja di mini market / supermarket? hanger ini sangat berguna untuk merapikan plastik blanjaan supaya tidak berantakan',
+            'harga' => 8500,
+            'stok' => 100,
+            'gambar_produk' => 'GANTUNGAN BARANG MOBIL CAR SEAT HANGER HOOK HOLDER BAG ORGANIZER 2 in 1.png',
+            'kategori_id' => 3, 
+            'variasi_id' => 3, 
+        ]);
     }
 }
