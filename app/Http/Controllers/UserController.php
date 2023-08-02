@@ -27,14 +27,25 @@ class UserController extends Controller
         $this->middleware('admin')->only(['deleteUsers']);
     }
 
+    public function detailProfile(){
+        $user = Auth::user();
+        $profile = User::select('tb_profile.*', 'users.id as user_id')
+            ->join('tb_profile', 'users.id', '=', 'tb_profile.user_id')
+            ->where('tb_profile.user_id', $user->id)
+            ->get();
+        return view('detail_profile', compact('profile'));
+    }
+
     public function profile()
     {
-        $profile = User::select('tb_profile.*', 'tb_keranjang.qty as qty')
-            ->join('tb_produk', 'tb_keranjang.produk_id', '=', 'tb_produk.id')
-            ->where('tb_keranjang.user_id', $user->id)
-            ->orderBy('tb_keranjang.qty', 'desc')
-            ->limit(5) // Batasi hanya 5 produk rekomendasi
-            ->get();
+        // $user = Auth::user();
+        // $profile = User::select('tb_profile.*', 'tb_keranjang.qty as qty')
+        //     ->join('tb_produk', 'tb_keranjang.produk_id', '=', 'tb_produk.id')
+        //     ->where('tb_keranjang.user_id', $user->id)
+        //     ->orderBy('tb_keranjang.qty', 'desc')
+        //     ->limit(5) // Batasi hanya 5 produk rekomendasi
+        //     ->get();
+        // return view('profile', compact('profile'));
         return view('profile');
     }
 
@@ -81,7 +92,8 @@ class UserController extends Controller
             ->orderBy('tb_keranjang.qty', 'desc')
             ->limit(5) // Batasi hanya 5 produk rekomendasi
             ->get();
-        // dd($rekomendasi);
+        $rekomen1 = Transaksi::all();
+        dd($rekomendasi,$rekomen1);
         return view('rekomendasi', compact('rekomendasi'));
     }
 
