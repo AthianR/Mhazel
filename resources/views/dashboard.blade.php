@@ -6,11 +6,11 @@
 
     <div class="p-4">
         <div class="p-4 border-2 border-gray-500 border-dashed rounded-lg dark:border-gray-700 mt-14">
-            @if (empty($cart) || count($cart) == 0)
+            {{-- @if (empty($cart) || count($cart) == 0)
                 Tidak Ada Rekomendasi
             @else
                 Ada Rekomendasi
-            @endif
+            @endif --}}
             <div id="default-carousel" class="relative w-full" data-carousel="slide">
                 <!-- Carousel wrapper -->
                 <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
@@ -18,11 +18,11 @@
                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
                         <img src="images/key/GantunganBrio.png"
                             class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                        <button
+                        {{-- <button
                             class="fixed px-4 py-2 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600 transition duration-300"
                             onclick="addToCart()">
                             Tambah ke Keranjang
-                        </button>
+                        </button> --}}
                     </div>
                     <!-- Item 2 -->
                     <div class="hidden duration-700 ease-in-out" data-carousel-item>

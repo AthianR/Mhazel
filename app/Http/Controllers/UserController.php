@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Produk;
 use App\Models\Profile;
 use App\Models\Keranjang;
+use App\Models\Transaksi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -28,6 +29,12 @@ class UserController extends Controller
 
     public function profile()
     {
+        $profile = User::select('tb_profile.*', 'tb_keranjang.qty as qty')
+            ->join('tb_produk', 'tb_keranjang.produk_id', '=', 'tb_produk.id')
+            ->where('tb_keranjang.user_id', $user->id)
+            ->orderBy('tb_keranjang.qty', 'desc')
+            ->limit(5) // Batasi hanya 5 produk rekomendasi
+            ->get();
         return view('profile');
     }
 
@@ -76,5 +83,25 @@ class UserController extends Controller
             ->get();
         // dd($rekomendasi);
         return view('rekomendasi', compact('rekomendasi'));
+    }
+
+    public function pembayaran(Request $request, $id)
+    {
+        // Ambil transaksi berdasarkan ID
+        $transaksi = Transaksi::find($id);
+
+        // Pastikan transaksi ditemukan
+        if (!$transaksi) {
+            return back()->with('error', 'Transaksi tidak ditemukan');
+        }
+
+        // Update nilai kolom 'status_pembayaran' dan 'status_pengiriman' pada transaksi
+        $transaksi->update([
+            'status_pembayaran' => 'Dibayar',
+            'status_pengiriman' => 'Sedang Dikemas',
+        ]);
+
+        // Kembali ke halaman sebelumnya dengan pesan alert sukses
+        return back()->with('success', 'Pembayaran berhasil diproses dan status pengiriman telah diubah menjadi "Sedang Dikemas"');
     }
 }

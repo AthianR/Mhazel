@@ -54,6 +54,7 @@ use App\Http\Controllers\LoginAdminController;
     Route::get('/profile/user', [UserController::class, 'profile'])->name('profile.user');
     Route::post('/update/profile', [UserController::class, 'update'])->name('update.user');
     Route::get('/rekomendasi', [UserController::class, 'rekomendasi'])->name('rekomendasi.user');
+    Route::put('/pembayaran/{id}', [UserController::class, 'pembayaran'])->name('pembayaran.user');
 // });
 
 Route::get('/', [ProductController::class, 'index'])->name('dashboard');
